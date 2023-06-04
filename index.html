@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+<style>h1 {
+    color: white;
+  text-shadow: 2px 2px 4px #000000;
+    background-color: rgb(90, 131, 153);
+    width: 500px;
+    padding: 5px;
+    border: 3.5px solid whitesmoke;
+    margin:10px;
+  }
+  h2 {
+    color: white;
+  text-shadow: 2px 2px 4px #000000;
+    background-color: rgb(90, 131, 153);
+    width: 900px;
+    padding: 2px;
+    border: 3.5px solid whitesmoke;
+    margin:5px;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    width: auto;height: auto;
+    background-color: rgb(141, 144, 112);
+    background-size: cover;
+    /* background-image: url("C:/Users/manoj/Downloads/Wallpapers/1870129.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; */
+  }
+  .button {
+    background-color:  rgb(90, 131, 153);
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 12px 32px;
+    border-radius: 12px;
+    border: 2px solid #000000;
+  }
+  .button:hover {
+    background-color: #ea0f0f; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+</style>
+</head>
+<title>Highlights Extractor</title>
+<p>
+<div align="center">
+<h1>HIGHLIGHTS EXTRACTOR</h1>
+<h2>Upload Full match video clip</h2>
+<p>
+{% if video_summary %}
+  <h2>Processed Video Summary:</h2>
+{% endif %}
+	<div style="margin: 10px auto;">
+		<video autoplay="autoplay" width="auto" height="400" controls="controls" preload="preload">
+			<source src="{{ url_for('display_video',filename=filename) }}" type="video/mp4"></source>
+		</video>
+	</div>
+<form method="post" action="/summarize" enctype="multipart/form-data">
+<input type="file" class="button" name="file" class="file_multi_video" accept="video/mp4" autocomplete="off" required><br><br>
+<input type="submit" class="button" value="SUMMARIZE"/>
+</form>
+</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="static\js\main.js"></script>
+</div>
